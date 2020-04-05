@@ -6,19 +6,19 @@ Steps to reproduce:
 
 2. Build the docker image: ```sh sudo docker build -t payara-clientcert-test2 .```
 
-3. Run the docker image: ```sh sudo docker run --rm -p 8181:8181 --name pt payara-clientcert-test2
+3. Run the docker image: ```sh sudo docker run --rm -p 8181:8181 --name pt payara-clientcert-test2```
 
-4. Step into the container: ```sh sudo docker exec -it pt /bin/bash
+4. Step into the container: ```sh sudo docker exec -it pt /bin/bash```
 
-5. In the container, create a pkcs12 file: ```sh keytool -importkeystore -srckeystore appserver/glassfish/domains/production/config/keystore.jks -destkeystore export.p12 -deststoretype PKCS12 -srcalias s1as -deststorepass changeit
+5. In the container, create a pkcs12 file: ```sh keytool -importkeystore -srckeystore appserver/glassfish/domains/production/config/keystore.jks -destkeystore export.p12 -deststoretype PKCS12 -srcalias s1as -deststorepass changeit```
 
 The requested password is "changeit"
 
 6. Exit the container
 
-7. Copy the key off the container: ```sh sudo docker cp pt:/opt/payara/export.p12 .
+7. Copy the key off the container: ```sh sudo docker cp pt:/opt/payara/export.p12 .```
 
-8. Run: ```sh curl -v -k --cert-type P12 --cert export.p12:changeit --header "Content-Type: text/xml;charset=UTF-8" --data @soap.xml https://localhost:8181/adminservice
+8. Run: ```sh curl -v -k --cert-type P12 --cert export.p12:changeit --header "Content-Type: text/xml;charset=UTF-8" --data @soap.xml https://localhost:8181/adminservice```
 
 The outcome is "Hello from CN=localhost,OU=Payara,O=Payara Foundation,L=Great Malvern,ST=Worcestershire,C=UK as admin: **false**"
 
