@@ -4,7 +4,7 @@ Steps to reproduce:
 
 1. Build the root pom.xml
 
-2. Build the docker image: ```sh sudo docker build -t payara-clientcert-test2 .
+2. Build the docker image: ```sh sudo docker build -t payara-clientcert-test2 .```
 
 3. Run the docker image: ```sh sudo docker run --rm -p 8181:8181 --name pt payara-clientcert-test2
 
