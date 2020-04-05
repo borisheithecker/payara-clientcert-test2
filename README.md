@@ -11,6 +11,7 @@ Steps to reproduce:
 4. Step into the container: ```sh sudo docker exec -it pt /bin/bash
 
 5. In the container, create a pkcs12 file: ```sh keytool -importkeystore -srckeystore appserver/glassfish/domains/production/config/keystore.jks -destkeystore export.p12 -deststoretype PKCS12 -srcalias s1as -deststorepass changeit
+
 The requested password is "changeit"
 
 6. Exit the container
