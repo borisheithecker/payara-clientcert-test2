@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd" version="7">
+  <application-name>org.thespheres-payara-clientcert-test2</application-name>
+  <display-name>payara-clientcert-test2-ear</display-name>
+  <module>
+    <ejb>org.thespheres-payara-clientcert-test2-ejb-0.9-SNAPSHOT.jar</ejb>
+  </module>
+  <module>
+    <web>
+      <web-uri>org.thespheres-payara-clientcert-test2-web-0.9-SNAPSHOT.war</web-uri>
+      <context-root>/admin</context-root>
+    </web>
+  </module>
+</application>

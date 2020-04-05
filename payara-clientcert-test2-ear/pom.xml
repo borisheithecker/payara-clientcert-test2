@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.thespheres</groupId>
+    <artifactId>payara-clientcert-test2-ear</artifactId>
+    <version>0.9-SNAPSHOT</version>
+    <packaging>ear</packaging>
+    <name>payara-clientcert-test2-ear-0.9-SNAPSHOT</name>
+    
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <jakartaee>8.0</jakartaee>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.thespheres</groupId>
+            <artifactId>payara-clientcert-test2-ejb</artifactId>
+            <version>0.9-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>org.thespheres</groupId>
+            <artifactId>payara-clientcert-test2-web</artifactId>
+            <version>0.9-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+    
+     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <applicationName>org.thespheres-payara-clientcert-test2</applicationName>
+                    <modules>
+                        <ejbModule>
+                            <bundleFileName>org.thespheres-payara-clientcert-test2-ejb-0.9-SNAPSHOT.jar</bundleFileName>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>payara-clientcert-test2-ejb</artifactId>
+                        </ejbModule>
+                        <webModule>
+                            <bundleFileName>org.thespheres-payara-clientcert-test2-web-0.9-SNAPSHOT.war</bundleFileName>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>payara-clientcert-test2-web</artifactId>
+                            <contextRoot>/admin</contextRoot>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>  
+        </plugins>
+    </build>
+</project>
